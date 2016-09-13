@@ -13768,7 +13768,14 @@ Observations from the graph:</p>
 </ol>
 <p>With max_depth = 1, model suffers from high bias, since variance is low and training score and validation score &lt; 0.5</p>
 <p>With max_depth = 10, model suffers from high variance.</p>
-<p>Visual cues: Bigger shaded regions means higher uncertainity and thus higher variance.</p>
+<p>Visual cues:</p>
+<ol>
+<li><p>Bigger shaded regions means higher uncertainity and thus higher variance.</p>
+</li>
+<li><p>As we increase max_depth, we see divergence in training score and validation score, which means high generalization error.
+With the training score being high, means that curve is over-fitting and such models have high variance.</p>
+</li>
+</ol>
 
 </div>
 </div>
