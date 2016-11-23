@@ -12601,11 +12601,100 @@ It is also one of the most memory efficient algorithms as it uses subsets of inp
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong>
-Support Vector machine algorithm tries to classify or separate data using hyperplane or a set of hyperplanes. The quality of separation is defined by distance to nearest training-data point of any class i.e. best 1D hyperplane would be one which maximises distance to nearest data point of 2 different classes.</p>
-<p>If training-data isnt linearly separable, we need to use one of the various kernel method available to support curvy or non-linear separable data.</p>
+Support Vector machine algorithm tries to classify or separate data by dividing set of points by lines or planes.
+If you see the image below, we could draw multiple lines which will split the blue points and red squares (Image 1 below). The problem then gets translated to how to choose the optimal line?</p>
+<p>The optimal line is the one which maximises the distance to nearest training-data point of blue points and red squares. The maximum length between highlighted blue point and red squares will be split by half by the optimal slice. (Image 2 below). This line maximizes chances that most data points of the test set or real world would be classified correctly by the algorithm.</p>
+<p>If training-data isnt linearly separable (Image 3 below), the model allows us to transform input data into a new set of data which is linearly separable. These transformations can be implemented via kernel functions.</p>
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="n">Image</span><span class="p">(</span><span class="n">url</span><span class="o">=</span> <span class="s2">&quot;http://docs.opencv.org/2.4/_images/separating-lines.png&quot;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[33]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<img src="http://docs.opencv.org/2.4/_images/separating-lines.png"/>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="n">Image</span><span class="p">(</span><span class="n">url</span><span class="o">=</span> <span class="s2">&quot;http://docs.opencv.org/2.4/_images/optimal-hyperplane.png&quot;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[34]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<img src="http://docs.opencv.org/2.4/_images/optimal-hyperplane.png"/>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="n">Image</span><span class="p">(</span><span class="n">url</span><span class="o">=</span> <span class="s2">&quot;https://upload.wikimedia.org/wikipedia/commons/1/1b/Kernel_Machine.png&quot;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[36]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Kernel_Machine.png"/>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
