@@ -12330,7 +12330,7 @@ Testing set has 95 samples.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Import the three supervised learning models from sklearn</span>
@@ -12370,40 +12370,40 @@ Testing set has 95 samples.
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Training a GaussianNB using a training set size of 100. . .
-Trained model in 0.0032 seconds
-Made predictions in 0.0006 seconds.
+Trained model in 0.0017 seconds
+Made predictions in 0.0005 seconds.
 F1 score for training set: 0.8550.
-Made predictions in 0.0008 seconds.
+Made predictions in 0.0004 seconds.
 F1 score for test set: 0.7481.
 Training a GaussianNB using a training set size of 200. . .
-Trained model in 0.0013 seconds
+Trained model in 0.0014 seconds
 Made predictions in 0.0006 seconds.
 F1 score for training set: 0.8321.
-Made predictions in 0.0005 seconds.
+Made predictions in 0.0004 seconds.
 F1 score for test set: 0.7132.
 Training a GaussianNB using a training set size of 300. . .
 Trained model in 0.0013 seconds
-Made predictions in 0.0006 seconds.
+Made predictions in 0.0009 seconds.
 F1 score for training set: 0.8088.
-Made predictions in 0.0004 seconds.
+Made predictions in 0.0007 seconds.
 F1 score for test set: 0.7500.
 Training a SVC using a training set size of 100. . .
-Trained model in 0.0019 seconds
-Made predictions in 0.0014 seconds.
+Trained model in 0.0021 seconds
+Made predictions in 0.0015 seconds.
 F1 score for training set: 0.8591.
-Made predictions in 0.0011 seconds.
+Made predictions in 0.0017 seconds.
 F1 score for test set: 0.7838.
 Training a SVC using a training set size of 200. . .
-Trained model in 0.0049 seconds
-Made predictions in 0.0035 seconds.
+Trained model in 0.0071 seconds
+Made predictions in 0.0041 seconds.
 F1 score for training set: 0.8693.
-Made predictions in 0.0017 seconds.
+Made predictions in 0.0018 seconds.
 F1 score for test set: 0.7755.
 Training a SVC using a training set size of 300. . .
 Trained model in 0.0098 seconds
-Made predictions in 0.0071 seconds.
+Made predictions in 0.0081 seconds.
 F1 score for training set: 0.8692.
-Made predictions in 0.0023 seconds.
+Made predictions in 0.0025 seconds.
 F1 score for test set: 0.7586.
 Training a DecisionTreeClassifier using a training set size of 100. . .
 Trained model in 0.0010 seconds
@@ -12412,13 +12412,13 @@ F1 score for training set: 1.0000.
 Made predictions in 0.0002 seconds.
 F1 score for test set: 0.6667.
 Training a DecisionTreeClassifier using a training set size of 200. . .
-Trained model in 0.0017 seconds
-Made predictions in 0.0002 seconds.
+Trained model in 0.0018 seconds
+Made predictions in 0.0003 seconds.
 F1 score for training set: 1.0000.
-Made predictions in 0.0002 seconds.
+Made predictions in 0.0003 seconds.
 F1 score for test set: 0.6929.
 Training a DecisionTreeClassifier using a training set size of 300. . .
-Trained model in 0.0026 seconds
+Trained model in 0.0025 seconds
 Made predictions in 0.0003 seconds.
 F1 score for training set: 1.0000.
 Made predictions in 0.0002 seconds.
@@ -12581,11 +12581,71 @@ F1 score for test set: 0.7119.
 <p>Due to high number of features(=30) available in the training data, we decided to choose Support Vector Machines which is particularly helpful in high dimensional spaces.
 Support Vector Machines algorithm is also good for scenarios where amount of training data vs features is a low number as is the case here.
 It is also one of the most memory efficient algorithms as it uses subsets of input data in decision functions.</p>
+<table>
+<thead><tr>
+<th style="text-align:center">Training Set Size</th>
+<th style="text-align:center">F1 Score (test) DecisionTreeClassifier</th>
+<th style="text-align:center">F1 Score (test) GaussianNB</th>
+<th style="text-align:center">F1 Score (test) SVC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">100</td>
+<td style="text-align:center">0.6667</td>
+<td style="text-align:center">0.7481</td>
+<td style="text-align:center">0.7838</td>
+</tr>
+<tr>
+<td style="text-align:center">200</td>
+<td style="text-align:center">0.6929</td>
+<td style="text-align:center">0.7132</td>
+<td style="text-align:center">0.7755</td>
+</tr>
+<tr>
+<td style="text-align:center">300</td>
+<td style="text-align:center">0.7119</td>
+<td style="text-align:center">0.7500</td>
+<td style="text-align:center">0.7586</td>
+</tr>
+</tbody>
+</table>
 <p>This is also reflected in the F1 scores above.
 If we closely look at above model results, we see that GaussianNB performed worse than SVC in both F1(training) and F1(test) score. Thus, for this experiment, SVC is a superior algorith of the 2.
 When comparing DecisionTreeClassifier with SVC, we see that DecisionTreeClassifier has a higher F1(training) score than SVC but lower F1(test) score than SVC. It looks like DecisionTreeClassifier may be overfitting and less performant in test set and real world predictions compared to SVC.</p>
-<p>Thus, based on F1(training) and F1(test) score, SVC model is best of the 3 for this dataset and experiment. 
-We discuss the model below.</p>
+<p>Thus, based on F1(test) score, SVC model is best of the 3 for this dataset and experiment.</p>
+<p>Below we have  captured Training time of the 3 models. We notice that Training Time for SVC is slower compare to GaussianNB and DecisionTreeClassifier.</p>
+<table>
+<thead><tr>
+<th style="text-align:center">Training Set Size</th>
+<th style="text-align:center">Training Time GaussianNB</th>
+<th style="text-align:center">Training Time DecisionTreeClassifier</th>
+<th style="text-align:center">Training Time SVC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">100</td>
+<td style="text-align:center">0.0016</td>
+<td style="text-align:center">0.0010</td>
+<td style="text-align:center">0.0019</td>
+</tr>
+<tr>
+<td style="text-align:center">200</td>
+<td style="text-align:center">0.0011</td>
+<td style="text-align:center">0.0017</td>
+<td style="text-align:center">0.0047</td>
+</tr>
+<tr>
+<td style="text-align:center">300</td>
+<td style="text-align:center">0.0012</td>
+<td style="text-align:center">0.0024</td>
+<td style="text-align:center">0.0095</td>
+</tr>
+</tbody>
+</table>
+<p>Even though SVC is slowest of the the 3 algorithms when we compare across 1 Training Set size, an interesting thing to note is that F1 score of SVC for Training size = 100, is better than DecisionTreeClassifier and GaussianNB for Training size = 300. We can see here that SVC model performs better and has higher F1 score with a smaller Training size than other models.</p>
+<p>We also note that SVC is using default kernel which is 'rbf' which has higher computational cost. SVC allows us to use a 'linear' or 'poly' kernel which are faster and use less computational cost.</p>
 
 </div>
 </div>
